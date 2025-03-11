@@ -973,7 +973,7 @@ packages:
 - pypi: .
   name: pddlgym
   version: 0.0.7
-  sha256: 7304aa31ebc51f51131810cbf3648eeaab970c0f63ab16898371ebf54ea975e8
+  sha256: 98478e826202e2b7b167601612bc7548c2a94b190c46ffdf164e56d4005da72a
   requires_python: '>=3.11'
   editable: true
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pillow-11.1.0-py313hb37fac4_0.conda
