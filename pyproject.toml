@@ -3,11 +3,11 @@ authors = [
     { name = "Tom Silver", email = "tslvr@mit.edu" },
     { name = "Rohan Chitnis", email = "ronuchit@gmail.com" },
 ]
-dependencies = []
 description = "Convert a PDDL domain into a Gymnasium environment."
 name = "pddlgym"
 requires-python = ">= 3.11"
 version = "0.0.7"
+dependencies = ["matplotlib", "pillow", "gymnasium", "imageio", "scikit-image", "networkx>=3.4.2,<4", "pytest>=8.3.5,<9"]
 
 [build-system]
 build-backend = "hatchling.build"
@@ -21,12 +21,3 @@ platforms = ["osx-arm64"]
 pddlgym = { path = ".", editable = true }
 
 [tool.pixi.tasks]
-
-[tool.pixi.dependencies]
-matplotlib = ">=3.10.1,<4"
-pillow = ">=11.1.0,<12"
-gymnasium = ">=0.26.3,<0.27"
-imageio = ">=2.37.0,<3"
-networkx = ">=3.4.2,<4"
-scikit-image = ">=0.25.2,<0.26"
-pytest = ">=8.3.5,<9"
