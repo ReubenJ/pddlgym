@@ -71,7 +71,7 @@ def run_demo(env, policy, max_num_steps=10, render=False,
 
     if render:
         images.append(env.render())
-        imageio.mimwrite(video_path, images, fps=fps)
+        imageio.mimwrite(video_path, images)
         print("Wrote out video to", video_path)
 
     env.close()

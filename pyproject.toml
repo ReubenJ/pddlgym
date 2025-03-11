@@ -6,7 +6,7 @@ authors = [
 description = "Convert a PDDL domain into a Gymnasium environment."
 name = "pddlgym"
 requires-python = ">= 3.11"
-version = "0.0.8"
+version = "0.0.9"
 dependencies = ["matplotlib", "pillow", "gymnasium", "imageio", "scikit-image", "networkx>=3.4.2,<4", "pytest>=8.3.5,<9"]
 
 [build-system]
