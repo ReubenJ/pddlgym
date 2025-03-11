@@ -172,7 +172,7 @@ class PDDLParser:
             lits = []
             probs = []
             expr = string[14:-1].strip()
-            for match in re.finditer("(\d*\.\d+)", expr):
+            for match in re.finditer(r"(\d*\.\d+)", expr):
                 prob = float(match.group())
                 subexpr = self._find_balanced_expression(expr[match.end():].strip(), 0)
                 lit = self._parse_into_literal(subexpr, params, is_effect=is_effect)
@@ -209,11 +209,11 @@ class PDDLParser:
             remaining_str = objects
             while True:
                 try:
-                    obj, remaining_str = re.split(r"\s-\s|\n-\s", remaining_str, 1)
+                    obj, remaining_str = re.split(r"\s-\s|\n-\s", remaining_str, maxsplit=1)
                 except ValueError:
                     break
                 if " " in remaining_str:
-                    object_type, remaining_str = re.split(r"[\s]+|[\n]+", remaining_str, 1)
+                    object_type, remaining_str = re.split(r"[\s]+|[\n]+", remaining_str, maxsplit=1)
                 else:
                     object_type = remaining_str
                     remaining_str = ""
