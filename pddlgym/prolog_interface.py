@@ -3,7 +3,7 @@ from pddlgym.utils import get_object_combinations
 import random
 from collections import defaultdict
 import subprocess
-import sys
+import shutil
 import tempfile
 
 
@@ -316,9 +316,10 @@ print_solutions([H|T]) :- write(H), nl, print_solutions(T).
         tmp_name = file.name
         with open(tmp_name, 'w') as f:
             f.write(self._prolog_str)
-        timeout_str = "gtimeout" if sys.platform == 'darwin' else "timeout"
-        cmd_str = "{} {} swipl {}".format(timeout_str, self._timeout, tmp_name)
-        output = subprocess.getoutput(cmd_str)
+        if not shutil.which("swipl"):
+            raise Exception("Prolog installation not found, no command `swipl`.")
+        run_result = subprocess.run(["swipl", tmp_name], capture_output=True, timeout=self._timeout)
+        output = run_result.stdout.decode()
         if "ERROR" in output or "Warning" in output:
             import ipdb; ipdb.set_trace()
             raise Exception("Prolog terminated with an error: \n{}".format(output))
