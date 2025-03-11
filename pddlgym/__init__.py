@@ -8,8 +8,8 @@ from . import spaces
 import matplotlib
 # matplotlib.use("Agg")
 from pddlgym.rendering import *
-from gym.envs.registration import register
-import gym
+import gymnasium as gym
+from gymnasium.envs.registration import register
 
 import os
 

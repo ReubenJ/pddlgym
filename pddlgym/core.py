@@ -24,7 +24,7 @@ import glob
 import os
 from itertools import product
 
-import gym
+import gymnasium as gym
 
 import numpy as np
 
@@ -576,6 +576,7 @@ class PDDLEnv(gym.Env):
                     mode="prolog",
                     max_assignment_count=99999)
                 for assignment in assignments:
+                    if not assignment: break  # at least in tests, sometimes `assignment` is {}
                     objects = [assignment[param_type(param_name)]
                                for param_name, param_type in zip(pred.param_names, pred.var_types)]
                     derived_literal = pred(*objects)

@@ -6,7 +6,7 @@ import sys
 import itertools
 import numpy as np
 import os
-import gym
+import gymnasium as gym
 import imageio
 
 

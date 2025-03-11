@@ -9,7 +9,8 @@ from pddlgym.parser import PDDLProblemParser
 from pddlgym.downward_translate.instantiate import explore as downward_explore
 from pddlgym.downward_translate.pddl_parser import open as downward_open
 from pddlgym.utils import nostdout
-from gym.spaces import Space
+import gymnasium as gym
+from gymnasium.spaces import Space
 from collections import defaultdict
 
 import os

@@ -1,7 +1,7 @@
 from pddlgym.core import PDDLEnv
 from pddlgym.rendering import sar_render, slow_sar_render, posar_render, myopic_posar_render
 from pddlgym.structs import Type, Predicate, Not, State, LiteralConjunction
-import gym
+import gymnasium as gym
 import functools
 import pddlgym
 import os
